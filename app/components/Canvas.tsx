@@ -14,12 +14,12 @@ export default function Canvas() {
         context.fillStyle = '#d4d4d4';
         context.fillRect(0, 0, canvas.width, canvas.height);
         
-        setTimeout(() => drawStar(canvas, context), 5000 * 1);
-        setTimeout(() => drawCircle(canvas, context), 5000 * 2);
-        setTimeout(() => drawSegments(canvas, context), 5000 * 3);
-        setTimeout(() => drawSmallCircle(canvas, context), 5000 * 4);
-        setTimeout(() => splitLittleCircles(canvas, context), 5000 * 5);
-        setTimeout(() => drawDiamondStars(canvas, context), 5000 * 6);
+        setTimeout(() => drawStar(canvas, context), 5000 * 0);
+        setTimeout(() => drawCircle(canvas, context), 5000 * 1);
+        setTimeout(() => drawSegments(canvas, context), 5000 * 2);
+        setTimeout(() => drawSmallCircle(canvas, context), 5000 * 3);
+        setTimeout(() => splitLittleCircles(canvas, context), 5000 * 4);
+        setTimeout(() => drawDiamondStars(canvas, context), 5000 * 5);
         
 /*
           drawStar(canvas, context)
