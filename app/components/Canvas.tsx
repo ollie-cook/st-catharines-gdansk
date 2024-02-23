@@ -6,6 +6,20 @@ import { type Lines } from '@/app/utils/types'
 export default function Canvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const windowWidth = window.innerWidth;
+  let canvasDimension;
+
+
+
+  if (windowWidth < 640) {
+    canvasDimension = 0.9*windowWidth
+  } else if (windowWidth < 1024) {
+    canvasDimension = 0.6*windowWidth
+  } else {
+    canvasDimension = 0.4*windowWidth
+  }
+
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (canvas) {
@@ -35,7 +49,7 @@ export default function Canvas() {
   }, []);
 
   return (
-    <canvas ref={canvasRef} width="500" height="500">
+    <canvas ref={canvasRef} width={canvasDimension} height={canvasDimension}>
 
     </canvas>
   )
