@@ -1,40 +1,42 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { type Lines } from '@/app/utils/types'
 
 export default function Canvas() {
+  const [canvasDimension, setCanvasDimension] = useState(0);
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const windowWidth = window.innerWidth;
-  let canvasDimension;
-
-
-
-  if (windowWidth < 640) {
-    canvasDimension = 0.9*windowWidth
-  } else if (windowWidth < 1024) {
-    canvasDimension = 0.6*windowWidth
-  } else {
-    canvasDimension = 0.4*windowWidth
-  }
-
+  //let canvasDimension;
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
+    const windowWidth = window.innerWidth;
+    
+
+
+
+    if (windowWidth < 640) {
+      setCanvasDimension(0.9*windowWidth)
+    } else if (windowWidth < 1024) {
+      setCanvasDimension(0.6*windowWidth)
+    } else {
+      setCanvasDimension(0.4*windowWidth)
+    }
+
     if (canvas) {
       const context = canvas.getContext('2d');
       if (context) {
         context.fillStyle = '#d4d4d4';
         context.fillRect(0, 0, canvas.width, canvas.height);
         
-        setTimeout(() => drawStar(canvas, context), 5000 * 0);
+        setTimeout(() => drawStar(canvas, context), 5000 * 0.5);
         setTimeout(() => drawCircle(canvas, context), 5000 * 1);
         setTimeout(() => drawSegments(canvas, context), 5000 * 2);
         setTimeout(() => drawSmallCircle(canvas, context), 5000 * 3);
         setTimeout(() => splitLittleCircles(canvas, context), 5000 * 4);
         setTimeout(() => drawDiamondStars(canvas, context), 5000 * 5);
-        
 /*
           drawStar(canvas, context)
           drawCircle(canvas, context)
